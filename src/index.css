@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mohamed Zakareia Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Portfolio Brand Colors - Blue & Black Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    /* Primary Blue - Main Brand Color */
+    --primary: 213 94% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 213 94% 68%;
+    
+    /* Secondary - Professional Black */
+    --secondary: 0 0% 5%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 213 94% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 213 94% 56%;
+
+    --radius: 0.5rem;
+
+    /* Portfolio Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    
+    /* Professional Shadows */
+    --shadow-primary: 0 20px 50px -12px hsl(var(--primary) / 0.25);
+    --shadow-card: 0 10px 30px -5px hsl(var(--foreground) / 0.1);
+    --shadow-hover: 0 25px 60px -12px hsl(var(--primary) / 0.4);
+    
+    /* Smooth Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark mode for portfolio */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    
+    --primary: 213 94% 56%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 213 94% 56%;
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .hero-text-glow {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+  
+  /* Card Components */
+  .portfolio-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Button Variants */
+  .btn-hero {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition-bounce);
+  }
+  
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: hsl(var(--secondary));
+    border: 2px solid hsl(var(--secondary));
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-secondary:hover {
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    transform: translateY(-2px);
+  }
+  
+  /* Skill Badge Animations */
+  .skill-badge {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-bounce);
+  }
+  
+  .skill-badge:hover {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    transform: scale(1.05);
+  }
+  
+  /* Navigation Styles */
+  .nav-link {
+    position: relative;
+    transition: var(--transition-smooth);
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
